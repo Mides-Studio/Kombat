@@ -2,25 +2,45 @@ plugins {
     id 'java'
 }
 
-subprojects {
-
+allprojects {
     group = "git.immutable.kombat"
     version = "2025.0312.01"
-    description ""
+    description = "Premium Minecraft combat plugin with 1.8 PvP mechanics"
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 
     repositories {
         mavenCentral()
+
         maven {
             name = "spigotmc-repo"
             url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
         }
+
+        maven {
+            name = "papermc-repo"
+            url = "https://repo.papermc.io/repository/maven-public/"
+        }
     }
 
     dependencies {
-//        compileOnly("org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT")
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
-    tasks {
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+        options.compilerArgs << '-parameters'
     }
 
+    test {
+        useJUnitPlatform()
+    }
 }
