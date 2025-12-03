@@ -4,7 +4,7 @@ Premium Minecraft combat plugin that brings back the classic 1.8 PvP experience 
 
 ## 🚀 Installation
 
-1. Download the latest release from [Releases](https://github.com/immutable/kombat/releases)
+1. Download the latest release from [Releases](https://github.com/Immutabled/Kombat/releases)
 2. Place the JAR in your server's `plugins` folder
 3. Start/restart your server
 4. Configure settings in `plugins/Kombat/config.yml`
