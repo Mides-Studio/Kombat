@@ -55,23 +55,13 @@ features:
 language: en
 ```
 
-## 🎮 Commands
-
-| Command | Permission | Description |
-|---------|-----------|-------------|
-| `/kombat` | `kombat.command` | Main command |
-| `/kombat enable` | `kombat.admin` | Enable/disable plugin |
-| `/kombat reload` | `kombat.admin` | Reload configuration |
-| `/kombat stats [player]` | `kombat.stats` | View combat statistics |
-| `/kombat profile <name>` | `kombat.profile` | Change knockback profile |
-
 ## 📚 Usage
 
 ### Getting the API
 
 ```java
-import git.immutable.kombat.api.KombatAPI;
-import git.immutable.kombat.api.KombatProvider;
+import git.immutabled.kombat.api.KombatAPI;
+import git.immutabled.kombat.api.KombatProvider;
 
 public class YourPlugin extends JavaPlugin {
     
@@ -89,7 +79,7 @@ public class YourPlugin extends JavaPlugin {
 ### Listening to Events
 
 ```java
-import git.immutable.kombat.api.event.PlayerDamageEvent;
+import git.immutabled.kombat.api.events.defaults.PlayerDamageEvent;
 
 KombatAPI api = KombatProvider.get();
 
@@ -104,7 +94,7 @@ api.getEventBus().register(PlayerDamageEvent.class, event -> {
 ### Custom Knockback Profiles
 
 ```java
-import git.immutable.kombat.api.combat.KnockbackProfile;
+import git.immutabled.kombat.api.knockback.KnockbackProfile;
 
 KnockbackProfile customProfile = KnockbackProfile.builder()
     .name("custom")
