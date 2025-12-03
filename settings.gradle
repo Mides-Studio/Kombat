@@ -1,0 +1,5 @@
+rootProject.name = "Kombat"
+include("api")
+include("core")
+include("platform")
+include("platform:spigot")

@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+subprojects {
+
+    group = "git.immutable.kombat"
+    version = "2025.0312.01"
+    description ""
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = "spigotmc-repo"
+            url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+        }
+    }
+
+    dependencies {
+//        compileOnly("org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT")
+    }
+
+    tasks {
+    }
+
+}
