@@ -28,9 +28,13 @@ subprojects {
             name = "papermc-repo"
             url = "https://repo.papermc.io/repository/maven-public/"
         }
+        maven {
+            url "https://repo.okaeri.cloud/releases/"
+        }
     }
 
     dependencies {
+        implementation 'eu.okaeri:okaeri-configs-yaml-bukkit:6.0.0-beta.23'
         compileOnly("org.projectlombok:lombok:1.18.42")
         annotationProcessor("org.projectlombok:lombok:1.18.42")
     }

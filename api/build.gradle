@@ -9,7 +9,6 @@ java {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     // No external dependencies for the API module
     // Keep it lightweight and platform-agnostic
 }

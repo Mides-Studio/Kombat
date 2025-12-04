@@ -1,5 +1,6 @@
 package git.immutabled.kombat.api.configuration;
 
+import eu.okaeri.configs.OkaeriConfig;
 import git.immutabled.kombat.api.knockback.KnockbackProfile;
 
 import java.util.List;
@@ -111,6 +112,8 @@ public interface KombatConfig {
     
     /**
      * Saves the current configuration to file
+     *
+     * @return
      */
-    void save();
+    OkaeriConfig save();
 }
