@@ -11,6 +11,5 @@ java {
 }
 
 dependencies {
-    // No external dependencies for the API module
-    // Keep it lightweight and platform-agnostic
+    implementation project(":api")
 }

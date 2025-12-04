@@ -2,6 +2,7 @@ package git.immutabled.kombat.api;
 
 import git.immutabled.kombat.api.configuration.KombatConfig;
 import git.immutabled.kombat.api.events.EventBus;
+import git.immutabled.kombat.api.loader.PlatformLoaded;
 import git.immutabled.kombat.api.player.KombatPlayer;
 
 import java.util.Optional;
@@ -16,6 +17,14 @@ import java.util.UUID;
  * @version 2025.0312.01
  */
 public interface KombatAPI {
+
+    /**
+     * Gets the platform loaded event
+     * This event is fired when the platform has finished loading Kombat.
+     *
+     * @return the platform loaded event
+     */
+    PlatformLoaded getPlatformLoaded();
 
     /**
      * Gets the event bus for registering and firing events
