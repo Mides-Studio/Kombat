@@ -2,6 +2,7 @@ package git.immutabled.kombat.api;
 
 import git.immutabled.kombat.api.configuration.KombatConfig;
 import git.immutabled.kombat.api.events.EventBus;
+import git.immutabled.kombat.api.loader.Platform;
 import git.immutabled.kombat.api.loader.PlatformLoaded;
 import git.immutabled.kombat.api.player.KombatPlayer;
 
@@ -24,7 +25,7 @@ public interface KombatAPI {
      *
      * @return the platform loaded event
      */
-    PlatformLoaded getPlatformLoaded();
+    Platform getPlatform();
 
     /**
      * Gets the event bus for registering and firing events
@@ -69,14 +70,7 @@ public interface KombatAPI {
      * @param enabled true to enable, false to disable
      */
     void setEnabled(boolean enabled);
-    
-    /**
-     * Gets the API version
-     * 
-     * @return the API version string
-     */
-    String getVersion();
-    
+
     /**
      * Reloads the configuration and applies changes
      */

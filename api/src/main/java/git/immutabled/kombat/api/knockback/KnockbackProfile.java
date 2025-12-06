@@ -59,14 +59,14 @@ public interface KnockbackProfile {
      * 
      * @return true if air movement is allowed
      */
-    boolean allowsAirMovement();
+    boolean isAirMovement();
     
     /**
      * Checks if this profile applies extra knockback to sprinting players
      * 
      * @return true if extra sprint knockback is enabled
      */
-    boolean hasSprintKnockback();
+    boolean isSprintKnockback();
     
     /**
      * Creates a builder for this profile

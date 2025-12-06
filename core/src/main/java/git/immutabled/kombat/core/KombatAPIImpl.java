@@ -3,6 +3,7 @@ package git.immutabled.kombat.core;
 import git.immutabled.kombat.api.KombatAPI;
 import git.immutabled.kombat.api.configuration.KombatConfig;
 import git.immutabled.kombat.api.events.EventBus;
+import git.immutabled.kombat.api.loader.Platform;
 import git.immutabled.kombat.api.loader.PlatformLoaded;
 import git.immutabled.kombat.api.player.KombatPlayer;
 import git.immutabled.kombat.core.configuration.KombatConfigImpl;
@@ -20,8 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class KombatAPIImpl implements KombatAPI {
 
-    private final PlatformLoaded platformLoaded;
-    private final String version;
+    private final Platform platform;
 
     private boolean enabled;
     private KombatConfig config = new KombatConfigImpl();
