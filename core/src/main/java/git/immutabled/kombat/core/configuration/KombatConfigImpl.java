@@ -57,12 +57,4 @@ public class KombatConfigImpl extends OkaeriConfig implements KombatConfig {
     public void reload() {
 
     }
-
-    protected void serialize() {
-        // Custom serialization logic if needed
-    }
-
-    public static void deserialize() {
-        // Custom deserialization logic if needed
-    }
 }

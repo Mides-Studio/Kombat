@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Getter
 @RequiredArgsConstructor
-public class RedisRepository<K,T extends JsonAdapter<K, T>> implements Repository<K, T> {
+public class RedisRepository<K, T extends JsonAdapter<K, T>> implements Repository<K, T> {
 
     private final JedisPool connection;
     private final String name = "Redis";
@@ -21,6 +21,8 @@ public class RedisRepository<K,T extends JsonAdapter<K, T>> implements Repositor
 
     @Override
     public List<T> findAll() {
+        return this.connection.get
+
         return List.of();
     }
 

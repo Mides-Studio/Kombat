@@ -12,8 +12,8 @@ import java.util.function.BiConsumer;
 public class FoliaKnockbackCommand extends FoliaKombatCommand implements CommandExecutor {
 
     public FoliaKnockbackCommand(BiConsumer<@NonNull CommandSender, Component> consumer) {
-        super(consumer);
-    }
+        super(((sender, component) ->
+                consumer.accept(sender,component)));    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
