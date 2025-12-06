@@ -87,48 +87,20 @@ public interface PlayerStatistics {
      * @return the best combo count
      */
     int getBestCombo();
-    
-    /**
-     * Increments the kill counter
-     */
-    void addKill();
-    
-    /**
-     * Increments the death counter
-     */
-    void addDeath();
-    
-    /**
-     * Adds damage dealt
-     * 
-     * @param damage the damage amount
-     */
-    void addDamageDealt(double damage);
-    
-    /**
-     * Adds damage taken
-     * 
-     * @param damage the damage amount
-     */
-    void addDamageTaken(double damage);
-    
-    /**
-     * Increments hits landed
-     */
-    void addHitLanded();
-    
-    /**
-     * Increments hits taken
-     */
-    void addHitTaken();
-    
-    /**
-     * Updates the combo record if current combo is higher
-     * 
-     * @param combo the current combo count
-     */
-    void updateComboRecord(int combo);
-    
+
+    void setKills(int kills);
+
+    void setDeaths(int deaths);
+
+    void setDamageDealt(double damageDealt);
+
+    void setDamageTaken(double damageTaken);
+
+    void setHitsLanded(int hitsLanded);
+    void setHitsTaken(int hitsTaken);
+    void setBestCombo(int bestCombo);
+
+
     /**
      * Resets all statistics
      */

@@ -1,4 +1,6 @@
 package git.immutabled.kombat.bukkit;
 
-public class BukkitKombatPlugin {
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class BukkitKombatPlugin extends JavaPlugin {
 }

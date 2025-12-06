@@ -2,14 +2,6 @@ plugins {
     id 'java'
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-
-    withSourcesJar()
-    withJavadocJar()
-}
-
 dependencies {
     implementation 'redis.clients:jedis:7.1.0'
     implementation 'org.mongodb:mongodb-driver-async:3.0.4'

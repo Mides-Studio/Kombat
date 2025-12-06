@@ -3,6 +3,7 @@ package git.immutabled.kombat.api.player;
 
 import git.immutabled.kombat.api.knockback.KnockbackProfile;
 import git.immutabled.kombat.api.player.statistics.PlayerStatistics;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -37,14 +38,7 @@ public interface KombatPlayer {
      */
     boolean isOnline();
     
-    /**
-     * Gets the platform-specific player object
-     * 
-     * @param <T> the platform player type
-     * @return the platform player
-     */
-    <T> T getPlatformPlayer();
-    
+
     /**
      * Gets the player's combat statistics
      * 
@@ -57,20 +51,15 @@ public interface KombatPlayer {
      * 
      * @return the knockback profile, or null if using defaults
      */
-    KnockbackProfile getKnockbackProfile();
+    @Nullable KnockbackProfile getKnockbackProfile();
     
     /**
      * Sets a custom knockback profile for this player
      * 
      * @param profile the profile to use
      */
-    void setKnockbackProfile(KnockbackProfile profile);
-    
-    /**
-     * Resets the player to defaults knockback profile
-     */
-    void resetKnockbackProfile();
-    
+    void setKnockbackProfile(@Nullable KnockbackProfile profile);
+
     /**
      * Gets the player's current combo count
      * 
@@ -79,14 +68,9 @@ public interface KombatPlayer {
     int getComboCount();
     
     /**
-     * Increments the player's combo counter
+     * Set the player's combo counter
      */
-    void incrementCombo();
-    
-    /**
-     * Resets the player's combo counter
-     */
-    void resetCombo();
+    void setComboCount(int combo);
     
     /**
      * Checks if Kombat mechanics are enabled for this player
