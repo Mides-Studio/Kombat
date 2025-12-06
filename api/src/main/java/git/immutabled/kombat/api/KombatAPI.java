@@ -2,8 +2,7 @@ package git.immutabled.kombat.api;
 
 import git.immutabled.kombat.api.configuration.KombatConfig;
 import git.immutabled.kombat.api.events.EventBus;
-import git.immutabled.kombat.api.loader.Platform;
-import git.immutabled.kombat.api.loader.PlatformLoaded;
+import git.immutabled.kombat.api.platform.Platform;
 import git.immutabled.kombat.api.player.KombatPlayer;
 
 import java.util.Optional;

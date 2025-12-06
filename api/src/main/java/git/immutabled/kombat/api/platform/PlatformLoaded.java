@@ -1,4 +1,4 @@
-package git.immutabled.kombat.api.loader;
+package git.immutabled.kombat.api.platform;
 
 public enum PlatformLoaded {
     SPIGOT,

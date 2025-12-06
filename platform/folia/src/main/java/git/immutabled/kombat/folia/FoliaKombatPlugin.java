@@ -1,12 +1,15 @@
 package git.immutabled.kombat.folia;
 
 import git.immutabled.kombat.api.KombatAPI;
-import git.immutabled.kombat.api.loader.Platform;
-import git.immutabled.kombat.api.loader.PlatformLoaded;
+import git.immutabled.kombat.api.platform.Platform;
+import git.immutabled.kombat.api.platform.PlatformLoaded;
 import git.immutabled.kombat.core.KombatAPIImpl;
+import git.immutabled.kombat.folia.commands.FoliaKnockbackCommand;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 @Getter @Setter
 public class FoliaKombatPlugin extends JavaPlugin {
@@ -16,7 +19,7 @@ public class FoliaKombatPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        INSTANCE = this;
+        FoliaKombatPlugin.INSTANCE = this;
 
         this.kombatAPI = new KombatAPIImpl(
                 new Platform(
@@ -25,6 +28,8 @@ public class FoliaKombatPlugin extends JavaPlugin {
                 )
         );
 
-        //TODO: Register all listeners
+        Objects.requireNonNull(this.getCommand("kombat"), "Kombat command not recognized").setExecutor(new FoliaKnockbackCommand());
+        Objects.requireNonNull(this.getCommand("knockback"), "Knockback command not recognized").setExecutor(new FoliaKnockbackCommand());
+
     }
 }
