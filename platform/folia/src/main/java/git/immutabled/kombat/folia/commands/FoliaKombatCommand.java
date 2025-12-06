@@ -13,8 +13,7 @@ import java.util.function.BiConsumer;
 public class FoliaKombatCommand extends KombatCommand<CommandSender> implements CommandExecutor {
 
     public FoliaKombatCommand(BiConsumer<@NonNull CommandSender, Component> consumer) {
-        super(((sender, component) ->
-                consumer.accept(sender,component)));
+        super((consumer));
     }
 
     @Override

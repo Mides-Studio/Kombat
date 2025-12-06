@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 java {
@@ -10,9 +9,6 @@ java {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    // No external dependencies for the API module
-    // Keep it lightweight and platform-agnostic
 }
 
 tasks.withType(JavaCompile) {
@@ -25,7 +21,4 @@ tasks.withType(Javadoc) {
 }
 repositories {
     mavenCentral()
-}
-kotlin {
-    jvmToolchain(17)
 }

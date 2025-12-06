@@ -21,7 +21,7 @@ public class RedisRepository<K, T extends JsonAdapter<K, T>> implements Reposito
 
     @Override
     public List<T> findAll() {
-        return this.connection.get
+//        return this.connection.get
 
         return List.of();
     }

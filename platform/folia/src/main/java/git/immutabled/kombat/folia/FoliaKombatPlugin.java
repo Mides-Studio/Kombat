@@ -9,9 +9,9 @@ import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter @Setter
-public class KombatPlugin extends JavaPlugin {
+public class FoliaKombatPlugin extends JavaPlugin {
 
-    @Getter static KombatPlugin INSTANCE;
+    @Getter static FoliaKombatPlugin INSTANCE;
     private KombatAPI kombatAPI;
 
     @Override
