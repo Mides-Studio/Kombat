@@ -8,6 +8,7 @@ import git.immutabled.kombat.api.loader.PlatformLoaded;
 import git.immutabled.kombat.api.player.KombatPlayer;
 import git.immutabled.kombat.core.configuration.KombatConfigImpl;
 import git.immutabled.kombat.core.events.EventBusImpl;
+import git.immutabled.kombat.core.repositories.RedisRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

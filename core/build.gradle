@@ -11,5 +11,7 @@ java {
 }
 
 dependencies {
+    implementation 'redis.clients:jedis:7.1.0'
+    implementation 'org.mongodb:mongodb-driver-async:3.0.4'
     implementation project(":api")
 }

@@ -7,68 +7,21 @@ import lombok.Setter;
 @Getter @Setter
 public class PlayerStatisticsImpl implements PlayerStatistics {
 
-    private final int kills;
-    private final int deaths;
-    private final int
-
-    @Override
-    public int getKills() {
-        return 0;
-    }
-
-
-    @Override
-    public int getDeaths() {
-        return 0;
-    }
-
-    @Override
-    public double getKDRatio() {
-        return 0;
-    }
-
-    @Override
-    public double getDamageDealt() {
-        return 0;
-    }
-
-    @Override
-    public double getDamageTaken() {
-        return 0;
-    }
-
-    @Override
-    public int getKillstreak() {
-        return 0;
-    }
-
-    @Override
-    public int getBestKillstreak() {
-        return 0;
-    }
-
-    @Override
-    public int getHitsLanded() {
-        return 0;
-    }
-
-    @Override
-    public int getHitsTaken() {
-        return 0;
-    }
-
-    @Override
-    public double getAccuracy() {
-        return 0;
-    }
-
-    @Override
-    public int getBestCombo() {
-        return 0;
-    }
+    private int kills;
+    private int deaths;
+    private int killstreak;
+    private int bestKillstreak;
+    private double damageDealt;
+    private double damageTaken;
+    private int hitsLanded;
+    private int hitsTaken;
+    private int bestCombo;
+    private double accuracy;
+    private double KDRatio;
 
     @Override
     public void addKill() {
+
 
     }
 
@@ -106,4 +59,6 @@ public class PlayerStatisticsImpl implements PlayerStatistics {
     public void reset() {
 
     }
+
+
 }
