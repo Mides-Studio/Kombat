@@ -1,3 +1,27 @@
+plugins {
+    id 'com.gradleup.shadow'
+}
+
 dependencies {
-    compileOnly 'dev.folia:folia-api:1.20.1-R0.1-SNAPSHOT'
+    implementation project(':platform:paper-common')
+    compileOnly 'io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT'
+}
+
+def pluginVersion = project.version.toString()
+
+tasks.named('processResources') {
+    inputs.property('version', pluginVersion)
+    filesMatching('plugin.yml') {
+        expand(version: pluginVersion)
+    }
+}
+
+tasks.named('shadowJar') {
+    archiveBaseName = 'Kombat-Folia'
+    archiveClassifier = ''
+    mergeServiceFiles()
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('shadowJar')
 }

@@ -34,6 +34,24 @@ public interface EventBus {
      * @return a registration handle
      */
     <T extends KombatEvent> EventRegistration register(Class<T> eventClass, EventPriority priority, Consumer<T> listener);
+
+    /**
+     * Registers a listener associated with an owner. All registrations for the
+     * owner can later be removed with {@link #unregisterAll(Object)}.
+     *
+     * @param owner registration owner
+     * @param eventClass event class
+     * @param priority listener priority
+     * @param listener listener callback
+     * @param <T> event type
+     * @return a registration handle
+     */
+    <T extends KombatEvent> EventRegistration register(
+            Object owner,
+            Class<T> eventClass,
+            EventPriority priority,
+            Consumer<T> listener
+    );
     
     /**
      * Fires an event to all registered listeners

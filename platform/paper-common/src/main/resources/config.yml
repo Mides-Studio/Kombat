@@ -1,0 +1,45 @@
+# Kombat configuration
+# Values are reloaded with /kombat reload.
+
+combat:
+  # A high attack speed removes the modern weapon cooldown.
+  attack-speed: 24.0
+  enable-sweep: false
+  hit-delay-ms: 450
+  base-damage-multiplier: 1.0
+  critical-damage-multiplier: 1.5
+  first-hit-damage-boost: 1.0
+  critical-enabled: true
+  critical-particles: true
+  hit-sound: true
+
+knockback:
+  default-profile: classic
+  profiles:
+    classic:
+      horizontal: 0.40
+      vertical: 0.36
+      friction: 0.60
+      sprint-multiplier: 1.35
+      max-distance: 1.20
+      air-movement: true
+      sprint-knockback: true
+    boxing:
+      horizontal: 0.36
+      vertical: 0.34
+      friction: 0.55
+      sprint-multiplier: 1.25
+      max-distance: 1.05
+      air-movement: true
+      sprint-knockback: true
+
+features:
+  knockback: true
+  statistics: true
+  combos: true
+
+combo:
+  timeout-ms: 3000
+
+language: en
+debug: false

@@ -6,6 +6,7 @@ import git.immutabled.kombat.api.platform.Platform;
 import git.immutabled.kombat.api.player.KombatPlayer;
 
 import java.util.Optional;
+import java.util.Collection;
 import java.util.UUID;
 
 /**
@@ -55,6 +56,13 @@ public interface KombatAPI {
      * @return an optional containing the player if found
      */
     Optional<KombatPlayer> getPlayer(String name);
+
+    /**
+     * Gets a stable snapshot of all known players.
+     *
+     * @return known players
+     */
+    Collection<KombatPlayer> getPlayers();
     
     /**
      * Checks if the Kombat system is enabled

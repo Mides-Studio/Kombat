@@ -1,0 +1,34 @@
+name: Kombat
+version: '${version}'
+main: git.immutabled.kombat.folia.FoliaKombatPlugin
+description: Region-safe classic combat for Folia servers.
+author: Immutabled
+website: https://github.com/Mides-Studio/Kombat
+api-version: '1.21'
+load: POSTWORLD
+folia-supported: true
+commands:
+  kombat:
+    description: Manage Kombat and inspect combat statistics.
+    usage: /kombat help
+    permission: kombat.command
+  knockback:
+    aliases: [kb]
+    description: Inspect and assign knockback profiles.
+    usage: /knockback help
+    permission: kombat.knockback
+permissions:
+  kombat.command:
+    default: true
+  kombat.toggle:
+    default: true
+  kombat.stats:
+    default: true
+  kombat.stats.others:
+    default: op
+  kombat.knockback:
+    default: true
+  kombat.knockback.assign:
+    default: op
+  kombat.admin:
+    default: op

@@ -99,7 +99,39 @@ public interface PlayerStatistics {
     void setHitsLanded(int hitsLanded);
     void setHitsTaken(int hitsTaken);
     void setBestCombo(int bestCombo);
+    void setKillstreak(int killstreak);
+    void setBestKillstreak(int bestKillstreak);
 
+    /**
+     * Records a successful hit and its final damage.
+     *
+     * @param damage final damage dealt
+     */
+    void recordHitLanded(double damage);
+
+    /**
+     * Records a received hit and its final damage.
+     *
+     * @param damage final damage taken
+     */
+    void recordHitTaken(double damage);
+
+    /**
+     * Records a kill and advances the current kill streak.
+     */
+    void recordKill();
+
+    /**
+     * Records a death and resets the current kill streak.
+     */
+    void recordDeath();
+
+    /**
+     * Records a combo if it is a new personal best.
+     *
+     * @param combo combo length
+     */
+    void recordCombo(int combo);
 
     /**
      * Resets all statistics

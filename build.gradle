@@ -1,46 +1,59 @@
 plugins {
-    id 'java'
+    id 'base'
+    id 'com.gradleup.shadow' version '9.6.1' apply false
 }
 
 allprojects {
-    group = "git.immutable.kombat"
-    version = "2025.0312.01"
-    description = "Premium Minecraft combat plugin with 1.8 PvP mechanics"
+    group = 'git.immutabled.kombat'
+    version = providers.gradleProperty('versionOverride').getOrElse('1.0.0-SNAPSHOT')
+    description = 'Cross-platform classic combat engine for modern Minecraft servers'
 }
 
 subprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+        withSourcesJar()
+        withJavadocJar()
     }
 
     repositories {
         mavenCentral()
-
         maven {
-            name = "papermc-repo"
-            url = "https://repo.papermc.io/repository/maven-public/"
-        }
-        maven {
-            url "https://repo.okaeri.cloud/releases/"
+            name = 'papermc'
+            url = 'https://repo.papermc.io/repository/maven-public/'
         }
     }
 
     dependencies {
-        implementation 'eu.okaeri:okaeri-configs-yaml-bukkit:6.0.0-beta.23'
-        implementation("net.kyori:adventure-api:4.25.0")
-        compileOnly("org.projectlombok:lombok:1.18.42")
-        annotationProcessor("org.projectlombok:lombok:1.18.42")
+        compileOnly 'org.jetbrains:annotations:26.0.2'
+
+        testImplementation platform('org.junit:junit-bom:5.13.4')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = 'UTF-8'
-        options.compilerArgs << '-parameters'
+        options.release = 21
+        options.compilerArgs.add('-parameters')
     }
 
-    test {
-        useJUnitPlatform()
+    tasks.withType(Javadoc).configureEach {
+        options.encoding = 'UTF-8'
+        options.addStringOption('Xdoclint:none', '-quiet')
     }
+
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+        testLogging {
+            events 'failed', 'skipped'
+        }
+    }
+}
+
+tasks.named('build') {
+    dependsOn subprojects.collect { it.tasks.named('build') }
 }

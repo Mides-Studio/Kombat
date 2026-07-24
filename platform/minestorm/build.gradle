@@ -1,7 +1,31 @@
+plugins {
+    id 'com.gradleup.shadow'
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(25)
+    targetCompatibility = JavaVersion.toVersion(25)
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-//    implementation 'net.minestom:minestom:2025.10.31-1.21.10'
+    compileOnly 'net.minestom:minestom:2025.10.31-1.21.10'
+    testImplementation 'net.minestom:minestom:2025.10.31-1.21.10'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+}
+
+tasks.named('shadowJar') {
+    archiveBaseName = 'Kombat-Minestom'
+    archiveClassifier = ''
+    mergeServiceFiles()
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('shadowJar')
 }

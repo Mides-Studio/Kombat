@@ -1,24 +1,3 @@
-plugins {
-    id 'java'
-}
-
-java {
-
-    withSourcesJar()
-    withJavadocJar()
-}
-
 dependencies {
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-tasks.withType(Javadoc) {
-    options.encoding = 'UTF-8'
-    options.addStringOption('Xdoclint:none', '-quiet')
-}
-repositories {
-    mavenCentral()
+    api 'net.kyori:adventure-api:4.25.0'
 }

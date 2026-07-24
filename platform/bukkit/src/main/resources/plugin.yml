@@ -1,0 +1,41 @@
+name: Kombat
+version: '${version}'
+main: git.immutabled.kombat.bukkit.BukkitKombatPlugin
+description: Cross-platform classic combat for modern Minecraft servers.
+author: Immutabled
+website: https://github.com/Mides-Studio/Kombat
+api-version: '1.21'
+load: POSTWORLD
+folia-supported: false
+commands:
+  kombat:
+    description: Manage Kombat and inspect combat statistics.
+    usage: /kombat help
+    permission: kombat.command
+  knockback:
+    aliases: [kb]
+    description: Inspect and assign knockback profiles.
+    usage: /knockback help
+    permission: kombat.knockback
+permissions:
+  kombat.command:
+    description: Use the base Kombat command.
+    default: true
+  kombat.toggle:
+    description: Toggle Kombat mechanics for yourself.
+    default: true
+  kombat.stats:
+    description: View your own combat statistics.
+    default: true
+  kombat.stats.others:
+    description: View another player's combat statistics.
+    default: op
+  kombat.knockback:
+    description: View knockback profiles.
+    default: true
+  kombat.knockback.assign:
+    description: Assign profiles to players.
+    default: op
+  kombat.admin:
+    description: Reload and globally enable or disable Kombat.
+    default: op
