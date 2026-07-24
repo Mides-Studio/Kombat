@@ -50,7 +50,7 @@ public abstract class AbstractPaperKombatPlugin extends JavaPlugin {
         for (Player onlinePlayer : getServer().getOnlinePlayers()) {
             combatListener.connect(onlinePlayer);
         }
-        getLogger().info("Kombat " + getPluginMeta().getVersion() + " enabled for " + platformType());
+        getLogger().info("Kombat " + getDescription().getVersion() + " enabled for " + platformType());
     }
 
     @Override
