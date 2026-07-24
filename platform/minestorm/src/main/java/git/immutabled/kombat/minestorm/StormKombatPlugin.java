@@ -51,6 +51,7 @@ public final class StormKombatPlugin implements AutoCloseable {
     private EventNode<Event> eventNode;
     private StormKombatCommand kombatCommand;
     private StormKnockbackCommand knockbackCommand;
+    private MinestomPlayerStore playerStore;
     private boolean installed;
 
     public StormKombatPlugin(Path dataDirectory) {
@@ -85,6 +86,7 @@ public final class StormKombatPlugin implements AutoCloseable {
                 config
         );
         kombat.publish();
+        playerStore = new MinestomPlayerStore(dataDirectory);
 
         eventNode = EventNode.all("kombat");
         eventNode.addListener(PlayerSpawnEvent.class, event -> connect(event.getPlayer()));
@@ -125,6 +127,7 @@ public final class StormKombatPlugin implements AutoCloseable {
         MinecraftServer.getGlobalEventHandler().removeChild(eventNode);
         MinecraftServer.getCommandManager().unregister(kombatCommand);
         MinecraftServer.getCommandManager().unregister(knockbackCommand);
+        playerStore.close(kombat.getPlayers());
         lastAttackers.clear();
         kombat.close();
         installed = false;
@@ -135,10 +138,12 @@ public final class StormKombatPlugin implements AutoCloseable {
     }
 
     private void connect(Player player) {
-        kombat.registerPlayer(player.getUuid(), player.getUsername());
+        KombatPlayer kombatPlayer = kombat.registerPlayer(player.getUuid(), player.getUsername());
+        playerStore.load(kombatPlayer, kombat);
     }
 
     private void disconnect(Player player) {
+        kombat.getPlayer(player.getUuid()).ifPresent(playerStore::saveAsync);
         kombat.markPlayerOffline(player.getUuid());
         kombat.getCombatEngine().forget(player.getUuid());
         lastAttackers.remove(player.getUuid());
