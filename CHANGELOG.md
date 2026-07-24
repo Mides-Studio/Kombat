@@ -6,6 +6,8 @@ All notable changes to Kombat are documented in this file. The project follows
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-07-24
+
 ### Added
 
 - Modular public API and platform-neutral combat engine
@@ -16,4 +18,5 @@ All notable changes to Kombat are documented in this file. The project follows
 - Owner-aware event registrations
 - Build validation and automated tagged releases
 
-[Unreleased]: https://github.com/Mides-Studio/Kombat/commits/master
+[Unreleased]: https://github.com/Mides-Studio/Kombat/compare/v1.0.0...master
+[1.0.0]: https://github.com/Mides-Studio/Kombat/releases/tag/v1.0.0
